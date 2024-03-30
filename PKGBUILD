@@ -2,7 +2,7 @@
 _canonical_name=lxd-ui
 
 pkgname=incus-ui-canonical
-pkgver=0.6
+pkgver=0.7
 pkgrel=1
 epoch=
 pkgdesc="lxd-ui rebranded to incus"
@@ -18,7 +18,7 @@ source=("git+https://github.com/zabbly/incus.git"
 )
 sha256sums=(
     'SKIP'
-    '427349b215fe1cf314d5b795e6ccc139e191327ec41f473b517ef2c7800f1282'
+    '1bbdbe442c0077a5d1bb3c81729ea7ab66161d3e93f91f5da69bdd00d1ffcd1e'
     '760c221d5105eae80665fa48d4195b0e6bf2b72106cb03d8eea9e4ffafa81411'
 )
 noextract=()
@@ -37,13 +37,9 @@ prepare() {
     patch -p1 -i "${REPO}/patches/ui-canonical-0004-Remove-external-links.patch"
     patch -p1 -i "${REPO}/patches/ui-canonical-0005-Remove-Canonical-image-servers.patch"
     patch -p1 -i "${REPO}/patches/ui-canonical-0006-Remove-version-check.patch"
+    patch -p1 -i "${REPO}/patches/ui-canonical-0007-Improve-openfga.patch"
+    sed -i -f "${REPO}/patches/ui-canonical-renames.sed" src/*/*.ts* src/*/*/*.ts* src/*/*/*/*.ts*
 
-    # Generic renaming
-    sed -i "s/LXD/Incus/g" src/*/*.ts* src/*/*/*.ts* src/*/*/*/*.ts*
-    sed -i "s/devlxd/guestapi/g" src/*/*.ts* src/*/*/*.ts* src/*/*/*/*.ts*
-    sed -i "s/dev\/lxd/dev\/incus/g" src/*/*.ts* src/*/*/*.ts* src/*/*/*/*.ts*
-    sed -i "s/lxd_/incus_/g" src/*/*.ts* src/*/*/*.ts* src/*/*/*/*.ts*
-    sed -i "s/\"lxd\"/\"incus\"/g" src/*/*.ts* src/*/*/*.ts* src/*/*/*/*.ts*
 }
 
 build() {
