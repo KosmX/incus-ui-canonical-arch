@@ -1,6 +1,6 @@
 pkgbase = incus-ui-canonical
 	pkgdesc = lxd-ui rebranded to incus
-	pkgver = 0.7
+	pkgver = 0.8
 	pkgrel = 1
 	url = https://github.com/KosmX/incus-ui-canonical-arch
 	arch = i686
@@ -13,10 +13,10 @@ pkgbase = incus-ui-canonical
 	depends = incus
 	backup = etc/systemd/system/incus.service
 	source = git+https://github.com/zabbly/incus.git
-	source = https://github.com/canonical/lxd-ui/archive/refs/tags/0.7.tar.gz
+	source = https://github.com/canonical/lxd-ui/archive/refs/tags/0.8.tar.gz
 	source = incus.service
 	sha256sums = SKIP
-	sha256sums = 1bbdbe442c0077a5d1bb3c81729ea7ab66161d3e93f91f5da69bdd00d1ffcd1e
+	sha256sums = 237b88debd2f6d55c073864b600734f35fa0894246bee898994180e95347fac4
 	sha256sums = 760c221d5105eae80665fa48d4195b0e6bf2b72106cb03d8eea9e4ffafa81411
 
 pkgname = incus-ui-canonical
