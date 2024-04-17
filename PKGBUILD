@@ -3,7 +3,7 @@ _canonical_name=lxd-ui
 
 pkgname=incus-ui-canonical
 pkgver=0.8
-pkgrel=1
+pkgrel=2
 epoch=
 pkgdesc="lxd-ui rebranded to incus"
 arch=('i686' 'x86_64')
@@ -30,6 +30,8 @@ prepare() {
 
     #https://github.com/zabbly/incus/blob/75f9f3de023f13d1d54e133fb2ea60de8a0c3006/.github/workflows/builds.yml#L306
     cd "$_canonical_name-$pkgver"
+    
+    git init # https://github.com/KosmX/incus-ui-canonical-arch/issues/3
     
     git apply -p1 < "${REPO}/patches/ui-canonical-0001-Branding.patch"
     patch -p1 -i "${REPO}/patches/ui-canonical-0002-Update-navigation.patch"

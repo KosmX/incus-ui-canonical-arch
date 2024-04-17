@@ -1,7 +1,7 @@
 pkgbase = incus-ui-canonical
 	pkgdesc = lxd-ui rebranded to incus
 	pkgver = 0.8
-	pkgrel = 1
+	pkgrel = 2
 	url = https://github.com/KosmX/incus-ui-canonical-arch
 	arch = i686
 	arch = x86_64
