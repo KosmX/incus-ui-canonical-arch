@@ -3,7 +3,7 @@ _canonical_name=lxd-ui
 
 pkgname=incus-ui-canonical
 pkgver=0.8
-pkgrel=2
+pkgrel=3
 epoch=
 pkgdesc="lxd-ui rebranded to incus"
 arch=('i686' 'x86_64')
@@ -46,6 +46,7 @@ prepare() {
 
 build() {
     cd "$_canonical_name-$pkgver"
+    export UV_USE_IO_URING=0
     yarn install
     yarn build
 }
