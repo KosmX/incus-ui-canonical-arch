@@ -2,8 +2,8 @@
 _canonical_name=lxd-ui
 
 pkgname=incus-ui-canonical
-pkgver=0.8
-pkgrel=3
+pkgver=0.12
+pkgrel=1
 epoch=
 pkgdesc="lxd-ui rebranded to incus"
 arch=('i686' 'x86_64')
@@ -18,7 +18,7 @@ source=("git+https://github.com/zabbly/incus.git"
 )
 sha256sums=(
     'SKIP'
-    '237b88debd2f6d55c073864b600734f35fa0894246bee898994180e95347fac4'
+    'a82779ba405bda6bf0c704edbd3c153a7719197383928512e8a9519650662849'
     '760c221d5105eae80665fa48d4195b0e6bf2b72106cb03d8eea9e4ffafa81411'
 )
 noextract=()
@@ -40,13 +40,18 @@ prepare() {
     patch -p1 -i "${REPO}/patches/ui-canonical-0005-Remove-Canonical-image-servers.patch"
     patch -p1 -i "${REPO}/patches/ui-canonical-0006-Remove-version-check.patch"
     patch -p1 -i "${REPO}/patches/ui-canonical-0007-Improve-openfga.patch"
+    patch -p1 -i "${REPO}/patches/ui-canonical-0008-Update-keys-that-aren-t-VM-specific.patch"
+    patch -p1 -i "${REPO}/patches/ui-canonical-0009-Fix-cluster-evacuation.patch"
+    patch -p1 -i "${REPO}/patches/ui-canonical-0010-Rename-user.ui_title-to-user.ui.title.patch"
+    patch -p1 -i "${REPO}/patches/ui-canonical-0011-Add-user.uid.sso_only.patch"
+    patch -p1 -i "${REPO}/patches/ui-canonical-0012-Skip-LXD-identity-API.patch"
+    patch -p1 -i "${REPO}/patches/ui-canonical-0013-Fix-network-forward-count-logic.patch"
     sed -i -f "${REPO}/patches/ui-canonical-renames.sed" src/*/*.ts* src/*/*/*.ts* src/*/*/*/*.ts*
 
 }
 
 build() {
     cd "$_canonical_name-$pkgver"
-    export UV_USE_IO_URING=0
     yarn install
     yarn build
 }
