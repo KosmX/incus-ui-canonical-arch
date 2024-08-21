@@ -21,6 +21,9 @@ sha256sums=('a82779ba405bda6bf0c704edbd3c153a7719197383928512e8a9519650662849'
 
 prepare() {
     cd "lxd-ui-${pkgver}"
+
+    git init # https://github.com/KosmX/incus-ui-canonical-arch/issues/3
+
     # https://github.com/zabbly/incus/blob/75f9f3de023f13d1d54e133fb2ea60de8a0c3006/.github/workflows/builds.yml#L306
     git apply "${srcdir}/incus-zabbly/patches"/ui-canonical-*.patch
     find src -type f -name '*.ts*' -exec sed -f "${srcdir}/incus-zabbly/patches/ui-canonical-renames.sed" -i {} \+
