@@ -2,7 +2,7 @@
 
 pkgname=incus-ui-canonical
 pkgver=0.12
-pkgrel=2
+pkgrel=3
 epoch=
 pkgdesc="lxd-ui rebranded to incus"
 arch=('i686' 'x86_64')
