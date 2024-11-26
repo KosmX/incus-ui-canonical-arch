@@ -1,8 +1,8 @@
 # Maintainer: KosmX <kosmx dot mc at gmail dot com>
 
 pkgname=incus-ui-canonical
-pkgver=0.12
-pkgrel=3
+pkgver=0.14
+pkgrel=1
 epoch=
 pkgdesc="lxd-ui rebranded to incus"
 arch=('i686' 'x86_64')
@@ -15,7 +15,7 @@ source=(
     "incus-zabbly::git+https://github.com/zabbly/incus.git#branch=daily"
     "incus-override-ui.conf"
 )
-sha256sums=('a82779ba405bda6bf0c704edbd3c153a7719197383928512e8a9519650662849'
+sha256sums=('e54e681d1ae40b90a57df00b126deaf085b1697154db442d9eaa1980a26e091e'
             'SKIP'
             '9df2976d3f4397d90c9ddc4ecf71195cf8c6fa13b280342ffa9b62ce36a54673')
 
